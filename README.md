@@ -7,17 +7,17 @@ The code is coming soon.
 
 If our method is useful for your research, please consider citing:
 
-    @article{tao2017defilter,
-      author    = {Xin Tao and
-                   Chao Zhou and
+    @article{wang2018inpainting,
+      author    = {Yi Wang and
+                   Xin Tao and
+                   Xiaojuan Qi and
                    Xiaoyong Shen and
-                   Jue Wang and
                    Jiaya Jia},
-      title     = {Zero-order Reverse Filtering},
+      title     = {Image Inpainting via Generative Multi-column Convolutional Neural Networks},
       journal   = {CoRR},
-      volume    = {abs/1704.04037},
-      year      = {2017},
-      url       = {https://arxiv.org/abs/1704.04037},
+      volume    = {abs/1810.08771},
+      year      = {2018},
+      url       = {https://arxiv.org/abs/1810.08771},
       }
 
 ## Contact
