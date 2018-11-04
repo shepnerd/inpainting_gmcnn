@@ -7,18 +7,12 @@ The code is coming soon.
 
 If our method is useful for your research, please consider citing:
 
-    @article{wang2018inpainting,
-      author    = {Yi Wang and
-                   Xin Tao and
-                   Xiaojuan Qi and
-                   Xiaoyong Shen and
-                   Jiaya Jia},
-      title     = {Image Inpainting via Generative Multi-column Convolutional Neural Networks},
-      journal   = {CoRR},
-      volume    = {abs/1810.08771},
-      year      = {2018},
-      url       = {https://arxiv.org/abs/1810.08771},
-      }
+    @article{wang2018image,
+      title={Image Inpainting via Generative Multi-column Convolutional Neural Networks},
+      author={Wang, Yi and Tao, Xin and Qi, Xiaojuan and Shen, Xiaoyong and Jia, Jiaya},
+      journal={arXiv preprint arXiv:1810.08771},
+      year={2018}
+    }
 
 ## Contact
 
