@@ -37,7 +37,7 @@ class TrainOptions:
         self.parser.add_argument('--ae_loss_alpha', type=float, default=1.2)
         self.parser.add_argument('--mrf_alpha', type=float, default=0.05)
         self.parser.add_argument('--random_seed', type=bool, default=False)
-        self.parser.add_argument('--lr', type=float, default=1e-4, help='learning rate for training')
+        self.parser.add_argument('--lr', type=float, default=1e-5, help='learning rate for training')
 
         self.parser.add_argument('--train_spe', type=int, default=1000)
         self.parser.add_argument('--max_iters', type=int, default=40000)

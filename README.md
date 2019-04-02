@@ -94,10 +94,14 @@ If our method is useful for your research, please consider citing:
 ## To be updated
 Pytorch version.
 
+## Other versions
+Checkout the keras implementation of our paper by Tomasz Latkowski [here](https://github.com/tlatkowski/inpainting-gmcnn-keras).
+
 ## Disclaimer
 
 - For the provided pretrained models, their performance would degrade obviously when they are evaluated by a mask whose unknown areas are too large.
 - As claimed in the paper, for the large datasets with thousands of categories, the model performance is unstable. Recent GAN using large-scale techniques may ease this problem.
+- We did not give the full implementation of ID-MRF (in this repo) described in our original paper. The step of excluding `s` is omitted for computational efficiency.
 
 ## Acknowledgments
 Our code is partially based on [Generative Image Inpainting with Contextual Attention](https://github.com/JiahuiYu/generative_inpainting) and [pix2pixHD](https://github.com/NVIDIA/pix2pixHD). The implementation of id-mrf loss is borrowed from [contextual loss](https://github.com/roimehrez/contextualLoss).
