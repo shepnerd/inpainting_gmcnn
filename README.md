@@ -12,9 +12,30 @@ by [Yi Wang](https://shepnerd.github.io/), [Xin Tao](http://www.xtao.website), [
 ## Introduction
 This repository is for the NeurIPS 2018 paper, '[Image Inpainting via Generative Multi-column Convolutional Neural Networks](http://papers.nips.cc/paper/7316-image-inpainting-via-generative-multi-column-convolutional-neural-networks.pdf)'.
 
+If our method is useful for your research, please consider citing:
+
+    @inproceedings{wang2018image,
+      title={Image Inpainting via Generative Multi-column Convolutional Neural Networks},
+      author={Wang, Yi and Tao, Xin and Qi, Xiaojuan and Shen, Xiaoyong and Jia, Jiaya},
+      booktitle={Advances in Neural Information Processing Systems},
+      pages={329--338},
+      year={2018}
+    }
+
 ## Our framework
 
 <img src="./pics/net_architecture.png" width="100%" alt="framework">
+
+### Partial Results
+<p><img src="./pics/face1.png" width="48%" alt="face1"> &nbsp;&nbsp;&nbsp;&nbsp; <img src="./pics/face2.png" width="48%" alt="face2"></p>
+
+<p><img src="./pics/face3.png" width="48%" alt="face3"> &nbsp;&nbsp;&nbsp;&nbsp; <img src="./pics/face4.png" width="48%" alt="face4"></p>
+
+<p><img src="./pics/p2.png" width="100%" alt="celeba-hq_512"></p>
+
+<p><img src="./pics/p3.png" width="100%" alt="celeba-hq_512"></p>
+
+### [More results](https://drive.google.com/file/d/1uzYgpiCkENTqW-Yy-AriHXH0wUidi3KY/view?usp=sharing)
 
 ## Prerequisites
 - Python3.5 (or higher)
@@ -29,6 +50,10 @@ This repository is for the NeurIPS 2018 paper, '[Image Inpainting via Generative
 ```bash
 git clone https://github.com/shepnerd/inpainting_gmcnn.git
 cd inpainting_gmcnn/tensorflow
+```
+or
+```bash
+cd inpainting_gmcnn/pytorch
 ```
 
 ## For tensorflow implementations
@@ -59,7 +84,7 @@ Then finetune the network,
 ```shell
 python train.py --dataset [DATASET_NAME] --data_file [DATASET_TRAININGFILE] --gpu_ids [NUM] --pretrain_network 0 --load_model_dir [PRETRAINED_MODEL_PATH] --batch_size 8
 ```
-We provide both random stroke and rectangle masks in the training and testing phase. The used mask type is indicated by specifying `--mask_type [rect(default)|stroke]` option when calling `train.py` or `test.py`.
+We provide both random <b>stroke</b> and <b>rectangle</b> masks in the training and testing phase. The used mask type is indicated by specifying `--mask_type [rect(default)|stroke]` option when calling `train.py` or `test.py`.
 
 ### A simple interactive inpainting GUI
 <img src="./pics/gui.png" width="100%" alt="gui">
@@ -68,31 +93,13 @@ A GUI written using tkinter is given in `painter_gmcnn.py`. Start it by calling
 sh ./script/vis_tool.sh
 ```
 
-### Partial Results
-<p><img src="./pics/face1.png" width="48%" alt="face1"> &nbsp;&nbsp;&nbsp;&nbsp; <img src="./pics/face2.png" width="48%" alt="face2"></p>
+## For pytorch implementations
+The testing and training procedures are similar to these in the tensorflow version except some parameters are with different names.
+### Testing
+A pretrained model: [CelebA-HQ_256](https://drive.google.com/file/d/1lx0BHKQ-GsbFu60ocYm4wK1HVfv7uean/view?usp=sharing).
 
-<p><img src="./pics/face3.png" width="48%" alt="face3"> &nbsp;&nbsp;&nbsp;&nbsp; <img src="./pics/face4.png" width="48%" alt="face4"></p>
-
-<p><img src="./pics/p2.png" width="100%" alt="celeba-hq_512"></p>
-
-<p><img src="./pics/p3.png" width="100%" alt="celeba-hq_512"></p>
-
-### [More results](https://drive.google.com/file/d/1uzYgpiCkENTqW-Yy-AriHXH0wUidi3KY/view?usp=sharing)
-
-### Citation
-
-If our method is useful for your research, please consider citing:
-
-    @inproceedings{wang2018image,
-      title={Image Inpainting via Generative Multi-column Convolutional Neural Networks},
-      author={Wang, Yi and Tao, Xin and Qi, Xiaojuan and Shen, Xiaoyong and Jia, Jiaya},
-      booktitle={Advances in Neural Information Processing Systems},
-      pages={329--338},
-      year={2018}
-    }
-
-## To be updated
-Pytorch version.
+### Training
+Compared with the tensorflow version, this pytorch version would expect a relatively smaller batch size for training.
 
 ## Other versions
 Checkout the keras implementation of our paper by Tomasz Latkowski [here](https://github.com/tlatkowski/inpainting-gmcnn-keras).
@@ -102,6 +109,7 @@ Checkout the keras implementation of our paper by Tomasz Latkowski [here](https:
 - For the provided pretrained models, their performance would degrade obviously when they are evaluated by a mask whose unknown areas are too large.
 - As claimed in the paper, for the large datasets with thousands of categories, the model performance is unstable. Recent GAN using large-scale techniques may ease this problem.
 - We did not give the full implementation of ID-MRF (in this repo) described in our original paper. The step of excluding `s` is omitted for computational efficiency.
+- In the pytorch version, a different GAN loss (wgan hinge loss with spectral normalization) is adopted.
 
 ## Acknowledgments
 Our code is partially based on [Generative Image Inpainting with Contextual Attention](https://github.com/JiahuiYu/generative_inpainting) and [pix2pixHD](https://github.com/NVIDIA/pix2pixHD). The implementation of id-mrf loss is borrowed from [contextual loss](https://github.com/roimehrez/contextualLoss).
