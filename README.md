@@ -44,6 +44,8 @@ If our method is useful for your research, please consider citing:
 - numpy
 - scipy
 - easydict
+- Pytorch 1.0 with NVIDIA GPU or CPU
+- tensorboardX
 
 ## Installation
 
