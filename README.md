@@ -18,7 +18,7 @@ If our method is useful for your research, please consider citing:
       title={Image Inpainting via Generative Multi-column Convolutional Neural Networks},
       author={Wang, Yi and Tao, Xin and Qi, Xiaojuan and Shen, Xiaoyong and Jia, Jiaya},
       booktitle={Advances in Neural Information Processing Systems},
-      pages={329--338},
+      pages={331--340},
       year={2018}
     }
 
