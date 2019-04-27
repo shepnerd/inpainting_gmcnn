@@ -220,8 +220,8 @@ class GMCNNModel:
         losses['ae_loss'] /= tf.reduce_mean(1. - mask)
 
         if summary:
-            viz_img = tf.concat([batch_pos, batch_incomplete, batch_complete], axis=2)
-            tf.summary.image('gt__degraded__predicted', f2uint(viz_img))
+            viz_img = tf.concat([batch_pos, batch_incomplete, batch_predicted, batch_complete], axis=2)[:, :, :, ::-1]
+            tf.summary.image('gt__degraded__predicted__completed', f2uint(viz_img))
             tf.summary.scalar('losses/l1_loss', losses['l1_loss'])
             tf.summary.scalar('losses/ae_loss', losses['ae_loss'])
 

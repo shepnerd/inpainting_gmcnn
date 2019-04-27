@@ -12,7 +12,7 @@ model = GMCNNModel()
 # print(config.img_shapes)
 dataLoader = DataLoader(filename=config.dataset_path, batch_size=config.batch_size,
                         im_size=config.img_shapes)
-images = dataLoader.next()
+images = dataLoader.next()[:, :, :, ::-1] # input BRG images
 g_vars, d_vars, losses = model.build_net(images, config=config)
 
 lr = tf.get_variable(
