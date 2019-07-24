@@ -301,7 +301,7 @@ class InpaintingModel_GMCNN(BaseModel):
             self.G_loss = self.G_loss + self.lambda_adv * (self.G_loss_adv + self.G_loss_adv_local)
 
     def forward_D(self):
-        self.completed_logit, self.completed_local_logit = self.netD(self.completed, self.completed_local)
+        self.completed_logit, self.completed_local_logit = self.netD(self.completed.detach(), self.completed_local.detach())
         self.gt_logit, self.gt_local_logit = self.netD(self.gt, self.gt_local)
         # hinge loss
         self.D_loss_local = nn.ReLU()(1.0 - self.gt_local_logit).mean() + nn.ReLU()(1.0 + self.completed_local_logit).mean()
