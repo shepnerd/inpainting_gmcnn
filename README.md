@@ -95,6 +95,9 @@ A GUI written using tkinter is given in `painter_gmcnn.py`. Start it by calling
 sh ./script/vis_tool.sh
 ```
 
+### Other pretrained models
+[CelebA-HQ_512](https://drive.google.com/open?id=14u58ZEUb6pg5mVwDlUIm6YDjiluqZoBU) trained with stroke masks.
+
 ## For pytorch implementations
 The testing and training procedures are similar to these in the tensorflow version except some parameters are with different names.
 ### Testing
