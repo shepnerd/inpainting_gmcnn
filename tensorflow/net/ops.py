@@ -51,9 +51,10 @@ def free_form_mask_tf(parts, maxVertex=16, maxLength=60, maxBrushWidth=14, maxAn
         maxAngle = tf.constant(maxAngle, dtype=tf.int32)
         h = tf.constant(im_size[0], dtype=tf.int32)
         w = tf.constant(im_size[1], dtype=tf.int32)
+
+        p = tf.py_func(np_free_form_mask, [maxVertex, maxLength, maxBrushWidth, maxAngle, h, w], tf.float32)
+        p = tf.reshape(p, [1, im_size[0], im_size[1], 1])
         for i in range(parts):
-            p = tf.py_func(np_free_form_mask, [maxVertex, maxLength, maxBrushWidth, maxAngle, h, w], tf.float32)
-            p = tf.reshape(p, [1, im_size[0], im_size[1], 1])
             mask = mask + p
         mask = tf.minimum(mask, 1.0)
     return mask
